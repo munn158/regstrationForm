@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            background: green;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form onsubmit="register(event)">
+        <input type="text" id="name" placeholder="Enter Name" required>
+
+        <input type="email" id="email" placeholder="Enter Email" required>
+
+        <input type="password" id="password" placeholder="Enter Password" required>
+
+        <input type="password" id="confirm" placeholder="Confirm Password" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function register(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let password = document.getElementById("password").value;
+    let confirm = document.getElementById("confirm").value;
+
+    if (password !== confirm) {
+        document.getElementById("result").innerHTML =
+            "Passwords do not match!";
+    }
+    else {
+        document.getElementById("result").innerHTML =
+            "Registration Successful! Welcome " + name;
+    }
+}
+</script>
+
+</body>
+</html>
